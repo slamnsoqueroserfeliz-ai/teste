@@ -471,4 +471,30 @@ function handleInput(e) {
 
 // Inicializa o jogo na tela principal
 goToMenu();
-resizeCanvas(); // Garante o tamanho correto na inicialização
+resizeCanvas(); // Garante o tamanho correto na inicializaçãofunction drawPlayers() {
+    gameObjects.players.forEach(player => {
+        // ... (código existente de desenho do círculo) ...
+        
+        ctx.fillStyle = player.color;
+        ctx.strokeStyle = player.team === 'home' ? selectedTeam.secondaryColor : opponentTeam.secondaryColor;
+        ctx.lineWidth = 2;
+
+        ctx.beginPath();
+        ctx.arc(player.x, player.y, player.radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // DESTAQUE VISUAL PARA O CRAQUE
+        if (player.isUserControlled) {
+            ctx.strokeStyle = '#FFD700'; // Dourado
+            ctx.lineWidth = 4;
+            ctx.stroke();
+            
+            // Desenhar o nome do jogador (simulando "se parecer")
+            ctx.fillStyle = '#FFD700'; 
+            ctx.font = "8px Arial";
+            ctx.fillText(selectedTeam.starPlayer, player.x - 15, player.y - 15);
+        }
+        // ... (fim do loop)
+    });
+}
