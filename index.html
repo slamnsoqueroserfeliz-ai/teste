@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brazil Soccer Legends</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="start-screen" class="screen active">
+        <h1>Brazil Soccer Legends</h1>
+        <button id="choose-team-btn">Escolher Time</button>
+        <button id="start-game-btn" disabled>Jogar (Selecione o time primeiro)</button>
+    </div>
+
+    <div id="team-selection-screen" class="screen">
+        <h2>Escolha seu Time Lendário</h2>
+        <div id="team-list">
+            </div>
+        <div id="selection-info">
+            <p id="selected-team-display">Time Escolhido: Nenhum</p>
+            <p id="opponent-team-display">Adversário: A definir</p>
+        </div>
+        <button id="confirm-selection-btn" disabled>Confirmar e Jogar</button>
+        <button id="back-to-menu-btn">Voltar ao Menu</button>
+    </div>
+
+    <div id="game-screen" class="screen">
+        <div id="scoreboard">
+            <span id="score-home">0</span> - <span id="score-away">0</span>
+        </div>
+        <canvas id="game-canvas"></canvas>
+    </div>
+
+    <div id="result-screen" class="screen">
+        <h2>Fim de Jogo!</h2>
+        <p id="match-result"></p>
+        <button id="rematch-btn">Revanche</button>
+        <button id="back-to-main-menu-btn">Voltar ao Menu</button>
+    </div>
+
+    <audio id="crowd-sound" src="crowd.mp3" preload="auto" loop></audio>
+    <audio id="goal-sound" src="goal.mp3" preload="auto"></audio>
+
+    <script src="game.js"></script>
+</body>
+          </html>
